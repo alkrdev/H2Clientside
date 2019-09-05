@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="WebApplication.WebForm" %>
 
 <!DOCTYPE html>
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -14,7 +12,7 @@
     <form id="form1" runat="server" style="height: 150px">      
         <div id="Main">
             <div id="Left" style="float:left; width:49%">                
-                <asp:ListBox ID="ListBox1" runat="server" Height="100%" Width="100%" style="margin-bottom: 0px; float:left"/>
+                <asp:ListBox ID="ListBox1" runat="server" Height="100%" Width="100%" Style="margin-bottom: 0px; float: left" />
             </div>
             <div id="Right" style="float:right; width:49%">
                 <asp:GridView ID="GridView1" runat="server" Height="100%" Width="100%" style="float:right"/>

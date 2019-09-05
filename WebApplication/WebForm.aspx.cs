@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Activities.Expressions;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web.Services;
@@ -17,21 +13,14 @@ namespace WebApplication
     public partial class WebForm : System.Web.UI.Page
     {
         public static List<BookingItem> BookingItems;
+        public static List<Sample> samples = new List<Sample>();
         public static int bookingNumber;
         public static int numberOfSeats;
-        public static List<Sample> samples = new List<Sample>();
         public static double columns;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string json = "";
-
-            using (WebClient wc = new WebClient())
-            {
-                json = wc.DownloadString("http://restpublic.junoeuro.dk//service1.svc//getListOfPersons//");
-            };
-
-            List<Person> pList = JsonConvert.DeserializeObject<List<Person>>(json);
+            List<Person> pList = JsonConvert.DeserializeObject<List<Person>>(GetData());            
 
             GridView1.DataSource = pList;
             GridView1.DataBind();

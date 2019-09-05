@@ -24,22 +24,15 @@ function call() {
 }
 
 function SwapOccupancy(source, id) {
-    var element = document.getElementById(id);
-
-    var substringHref = window.location.href.substring(window.location.href.indexOf("st:") + 3, window.location.href.indexOf("st:") + 8);
     var boole = source.substring(source.indexOf("Images")) == "Images/SeatOpen.png";
-    var imagestring = boole ? "/Images/SeatClose.png" : "/Images/SeatOpen.png";
-    var state = boole ? 1 : 0;
-    var json = '{ "state": ' + state + ', "id": ' + id + '}';
 
-    var obj = new Object();
-    obj.state = state;
-    obj.id = id;
+    var address = window.location.href;
+    var indexOfSt = address.indexOf("st:");
+    var substringHref = address.substring(indexOfSt + 3, indexOfSt + 8);
+    var element = document.getElementById(id);
+    $(element).attr('src', "https://localhost:" + substringHref + (boole ? "/Images/SeatClose.png" : "/Images/SeatOpen.png"));
 
-
-
-    $(element).attr('src', "https://localhost:" + substringHref + imagestring);
-
+    var json = '{ "state": ' + (boole ? 1 : 0) + ', "id": ' + id + '}';
     $.ajax({
         type: "POST",
         url: "WebForm.aspx/SetSeatState",
