@@ -27,6 +27,9 @@
                 <img src="<%#Eval("url") %>" id="<%#Eval("id") %>" onclick="SwapOccupancy(this.src, this.id)"/>
             </ItemTemplate>
         </asp:DataList>
+        <canvas id="canvasID">
+
+        </canvas>
     </form>
        
         

@@ -37,6 +37,7 @@ namespace WebApplication
             CreateGrid();
             CloseSeats();
 
+
             //pList.ForEach(x =>
             //{
             //    Button b = new Button();
@@ -48,6 +49,16 @@ namespace WebApplication
             //});
 
 
+        }
+
+
+        public void SetDataSourceDataList(object list) {
+            switch (list)
+            {
+                case DataList dl:
+                default:
+                    break;
+            }
         }
 
         protected void Button_Click(object sender, EventArgs e)
